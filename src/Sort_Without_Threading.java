@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Without_Threading {
+public class Sort_Without_Threading {
     public static void Brick_Sort(double CGPA_Array[], int Array_Size) {
         boolean FLAG = false;
 

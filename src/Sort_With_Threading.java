@@ -3,7 +3,10 @@ import java.util.Scanner;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
-public class With_Threading {
+
+////   Reference  =   https://stackoverflow.com/questions/72205986/odd-even-sort-java-using-multithreading
+
+public class Sort_With_Threading {
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
         System.out.print("Enter Size of array: ");
@@ -13,7 +16,6 @@ public class With_Threading {
 
         for (int i = 0; i < Size; i++) {
             CGPA_Array[i]=random.nextFloat()*10.000;
-
         }
         int Array_Size = CGPA_Array.length;
         long INITIAL = System.currentTimeMillis();
