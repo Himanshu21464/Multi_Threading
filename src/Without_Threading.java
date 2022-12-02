@@ -1,57 +1,55 @@
-import java.io.*;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Without_Threading {
-    public static void oddEvenSort(int arr[], int n)
-    {
-        boolean isSorted = false; // Initially array is unsorted
+    public static void Brick_Sort(double CGPA_Array[], int Array_Size) {
+        boolean FLAG = false;
 
-        while (!isSorted)
-        {
-            isSorted = true;
-            int temp =0;
+        while (!FLAG) {
+            FLAG = true;
+            double Temporary = 0;
 
-            // Perform Bubble sort on odd indexed element
-            for (int i=1; i<=n-2; i=i+2)
-            {
-                if (arr[i] > arr[i+1])
-                {
-                    temp = arr[i];
-                    arr[i] = arr[i+1];
-                    arr[i+1] = temp;
-                    isSorted = false;
+            for (int x = 1; x <= Array_Size - 2; x = x + 2) {
+                if (CGPA_Array[x] < CGPA_Array[x + 1]) {
+                    Temporary = CGPA_Array[x];
+                    CGPA_Array[x] = CGPA_Array[x + 1];
+                    CGPA_Array[x + 1] = Temporary;
+                    FLAG = false;
                 }
             }
 
-            // Perform Bubble sort on even indexed element
-            for (int i=0; i<=n-2; i=i+2)
-            {
-                if (arr[i] > arr[i+1])
-                {
-                    temp = arr[i];
-                    arr[i] = arr[i+1];
-                    arr[i+1] = temp;
-                    isSorted = false;
+            for (int y = 0; y <= Array_Size - 2; y = y + 2) {
+                if (CGPA_Array[y] < CGPA_Array[y + 1]) {
+                    Temporary = CGPA_Array[y];
+                    CGPA_Array[y] = CGPA_Array[y + 1];
+                    CGPA_Array[y + 1] = Temporary;
+                    FLAG = false;
                 }
             }
         }
 
         return;
     }
-    public static void main (String[] args) {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.print("Enter Size of array: ");
+        int Size=sc.nextInt();
+        double CGPA_Array[]=new double[Size];
+        Random random = new Random();
 
-        for (int i = 0; i < 10000; i++) {
-
+        for (int i = 0; i < Size; i++) {
+            CGPA_Array[i]=random.nextFloat()*10.000;
 
         }
+        int Array_Size = CGPA_Array.length;
+        long INITIAL = System.currentTimeMillis();
+        Brick_Sort(CGPA_Array, Array_Size);
+        long FINAL = System.currentTimeMillis();
 
-        int arr[] = {34, 2, 10, -9};
-        int n = arr.length;
-
-        oddEvenSort(arr, n);
-        for (int i=0; i < n; i++)
-            System.out.print(arr[i] + " ");
-
-        System.out.println(" ");
+        for (int i = 0; i < Array_Size; i++) {
+            System.out.format("%.3f\n", CGPA_Array[i]);
+        }
+        System.out.println("Time taken to Sort CGPA list : " + (FINAL - INITIAL) + "ms");
     }
 }
 
